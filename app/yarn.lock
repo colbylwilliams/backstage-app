@@ -217,7 +217,7 @@
   dependencies:
     debug "^4.1.1"
 
-"@azure/msal-node@^1.3.0":
+"@azure/msal-node@^1.1.0", "@azure/msal-node@^1.3.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@azure/msal-node/-/msal-node-1.6.0.tgz#59d6306979581fd9379d17d22047ada143ed56df"
   integrity sha512-RCPXVWsjqYZh7NB1pAJLn4ypHlLBulOjw5nKPLsJiaJJIXnN8kc6SMkK3S9/80DZCEBstvoRMz6zF50QZJUeOQ==
@@ -1687,6 +1687,23 @@
     "@backstage/errors" "^0.2.2"
     jose "^1.27.1"
     node-fetch "^2.6.7"
+    winston "^3.2.1"
+
+"@backstage/plugin-catalog-backend-module-msgraph@^0.2.17":
+  version "0.2.17"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-catalog-backend-module-msgraph/-/plugin-catalog-backend-module-msgraph-0.2.17.tgz#f7e93c593ca41520f876234e6bdbd3c974595be9"
+  integrity sha512-UwFYIGkhIdIl1P7bYFltPL0Ly7UGTWC0qx3jUigm7u8xoCXm6Uxod3za4WUnv6s8hoUktAxkHjM4+gGCp9n+UQ==
+  dependencies:
+    "@azure/msal-node" "^1.1.0"
+    "@backstage/catalog-model" "^0.11.0"
+    "@backstage/config" "^0.1.15"
+    "@backstage/plugin-catalog-backend" "^0.22.0"
+    "@microsoft/microsoft-graph-types" "^2.6.0"
+    "@types/node-fetch" "^2.5.12"
+    lodash "^4.17.21"
+    node-fetch "^2.6.7"
+    p-limit "^3.0.2"
+    qs "^6.9.4"
     winston "^3.2.1"
 
 "@backstage/plugin-catalog-backend@^0.22.0":
@@ -3832,6 +3849,11 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
 
+"@microsoft/microsoft-graph-types@^2.6.0":
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/microsoft-graph-types/-/microsoft-graph-types-2.16.0.tgz#5329890d230c4fdd9f57f39e26dfade0882c94f3"
+  integrity sha512-Qvxv9mpXb/F4xlESEkSLjREHj3dAixTkH3LVO6Ct6sllc5RWrQxPxaSGqW9IpcLU6jI49f2XNSGLotVef3Irdg==
+
 "@n1ru4l/graphql-live-query@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@n1ru4l/graphql-live-query/-/graphql-live-query-0.9.0.tgz#defaebdd31f625bee49e6745934f36312532b2bc"
@@ -4979,7 +5001,7 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node-fetch@^2.5.0":
+"@types/node-fetch@^2.5.0", "@types/node-fetch@^2.5.12":
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.1.tgz#8f127c50481db65886800ef496f20bbf15518975"
   integrity sha512-oMqjURCaxoSIsHSr1E47QHzbmzNR5rK8McHuNb11BOM9cHcIK3Avy0s/b2JlXHoQGTYS3NsvWzV1M0iK7l0wbA==

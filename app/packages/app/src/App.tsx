@@ -33,8 +33,22 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { PermissionedRoute } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common';
 
+import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
+import { SignInProviderConfig, SignInPage } from '@backstage/core-components';
+
+const microsoftProvider: SignInProviderConfig = {
+  id: 'microsoft-auth-provider',
+  title: 'Microsoft',
+  message: 'Sign in using Microsoft',
+  apiRef: microsoftAuthApiRef
+}
+
 const app = createApp({
   apis,
+  components: {
+    // SignInPage: props => <SignInPage {...props} auto provider={microsoftProvider} />
+    SignInPage: props => <SignInPage {...props} auto providers={['guest', microsoftProvider]} />
+  },
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,

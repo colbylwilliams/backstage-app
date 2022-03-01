@@ -57,12 +57,36 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
-  providers: {}
+  providers:
+    microsoft:
+      development:
+        tenantId: ${MICROSOFT_TENANT_ID}
+        clientId: ${MICROSOFT_CLIENT_ID}
+        clientSecret: ${MICROSOFT_CLIENT_SECRET}
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
+  processors:
+    microsoftGraphOrg:
+      providers:
+        - target: https://graph.microsoft.com/v1.0
+          authority: https://login.microsoftonline.com
+          tenantId: ${MICROSOFT_TENANT_ID}
+          clientId: ${MICROSOFT_CLIENT_ID}
+          clientSecret: ${MICROSOFT_CLIENT_SECRET}
+          # Optional filter for user, see Microsoft Graph API for the syntax
+          # See https://docs.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-1.0#properties
+          # and for the syntax https://docs.microsoft.com/en-us/graph/query-parameters#filter-parameter
+          # This and userGroupMemberFilter are mutually exclusive, only one can be specified
+          # userFilter: accountEnabled eq true and userType eq 'member'
+          # Optional filter for users, use group membership to get users.
+          # This and userFilter are mutually exclusive, only one can be specified
+          # userGroupMemberFilter: "displayName eq 'Backstage Users'"
+          # Optional filter for group, see Microsoft Graph API for the syntax
+          # See https://docs.microsoft.com/en-us/graph/api/resources/group?view=graph-rest-1.0#properties
+          # groupFilter: securityEnabled eq false and mailEnabled eq true and groupTypes/any(c:c+eq+'Unified')
   import:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
@@ -86,8 +110,8 @@ catalog:
       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-resources.yaml
 
     # Backstage example organization groups
-    - type: url
-      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme/org.yaml
+    # - type: url
+    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme/org.yaml
 
     # Backstage example templates
     - type: url
