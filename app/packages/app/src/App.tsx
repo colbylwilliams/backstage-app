@@ -17,7 +17,7 @@ import { TechRadarPage } from '@backstage/plugin-tech-radar';
 import {
   DefaultTechDocsHome,
   TechDocsIndexPage,
-  techdocsPlugin,
+  // techdocsPlugin,
   TechDocsReaderPage,
 } from '@backstage/plugin-techdocs';
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
@@ -31,7 +31,7 @@ import { createApp } from '@backstage/app-defaults';
 import { FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { PermissionedRoute } from '@backstage/plugin-permission-react';
-import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common';
+import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInProviderConfig, SignInPage } from '@backstage/core-components';
@@ -52,7 +52,7 @@ const app = createApp({
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
-      viewTechDoc: techdocsPlugin.routes.docRoot,
+      // viewTechDoc: techdocsPlugin.routes.docRoot,
     });
     bind(apiDocsPlugin.externalRoutes, {
       registerApi: catalogImportPlugin.routes.importPage,

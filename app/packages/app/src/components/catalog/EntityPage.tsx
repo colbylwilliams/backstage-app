@@ -69,10 +69,10 @@ import {
 } from '@backstage/catalog-model';
 import {
   EntityGithubInsightsContent,
-  EntityGithubInsightsLanguagesCard,
-  EntityGithubInsightsReadmeCard,
-  EntityGithubInsightsReleasesCard,
-  isGithubInsightsAvailable,
+  // EntityGithubInsightsLanguagesCard,
+  // EntityGithubInsightsReadmeCard,
+  // EntityGithubInsightsReleasesCard,
+  // isGithubInsightsAvailable,
 } from '@roadiehq/backstage-plugin-github-insights';
 import { EntityGithubPullRequestsContent } from '@roadiehq/backstage-plugin-github-pull-requests';
 
