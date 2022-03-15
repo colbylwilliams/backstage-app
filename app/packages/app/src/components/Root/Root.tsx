@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /*
  * Copyright 2020 The Backstage Authors
  *
@@ -13,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+// https://v4.mui.com/components/material-icons/
 
 import React, { useContext, PropsWithChildren } from 'react';
 import { Link, makeStyles } from '@material-ui/core';
@@ -20,6 +22,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import MapIcon from '@material-ui/icons/MyLocation';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
+import AccountTree from '@material-ui/icons/AccountTree';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
@@ -42,6 +45,7 @@ import {
 } from '@backstage/core-components';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+// import { TeamCloudProvider } from '@internal/plugin-teamcloud/src/providers/TeamCloudProvider';
 
 const useSidebarLogoStyles = makeStyles({
   root: {
@@ -84,6 +88,11 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarSearchModal />
       </SidebarGroup>
       <SidebarDivider />
+      <SidebarGroup label="Orgs" icon={<MenuIcon />}>
+        <SidebarItem icon={AccountTree} to="orgs" text='Organizations' />
+        <SidebarItem icon={AccountTree} to="projects" text='Projects' />
+      </SidebarGroup>
+      <SidebarDivider />
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
         {/* Global nav, not org-specific */}
         <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
@@ -98,11 +107,7 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       </SidebarGroup>
       <SidebarSpace />
       <SidebarDivider />
-      <SidebarGroup
-        label="Settings"
-        icon={<UserSettingsSignInAvatar />}
-        to="/settings"
-      >
+      <SidebarGroup label="Settings" icon={<UserSettingsSignInAvatar />} to="/settings">
         <SidebarSettings />
       </SidebarGroup>
     </Sidebar>
