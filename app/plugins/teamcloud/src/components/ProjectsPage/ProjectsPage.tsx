@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { Typography, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import {
-    InfoCard,
+    // InfoCard,
     Header,
     Page,
     Content,

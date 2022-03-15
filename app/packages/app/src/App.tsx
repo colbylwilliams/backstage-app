@@ -95,6 +95,7 @@ const routes = (
       <Route path="/catalog-graph" element={<CatalogGraphPage />} />
       <Route path="/orgs" element={<OrgsPage />} />
       <Route path="/orgs/:orgId" element={<OrgPage />} />
+      {/* <Route path="/projects" element={<Projec />} /> */}
     </FlatRoutes>
   </TeamCloudProvider >
 );

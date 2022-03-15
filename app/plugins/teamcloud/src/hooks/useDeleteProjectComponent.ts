@@ -20,7 +20,7 @@ export const useDeleteProjectComponent = () => {
         });
         return result
     }, {
-        onSuccess: (data, component) => {
+        onSuccess: (_data, component) => {
             queryClient.setQueryData(['org', project?.organization, 'project', project?.id, 'component', component.slug], undefined)
             queryClient.invalidateQueries(['org', project?.organization, 'project', project?.id, 'component'])
 

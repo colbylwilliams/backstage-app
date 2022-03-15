@@ -26,7 +26,7 @@ import {
   ProjectTemplate as ProjectTemplateMapper,
   ScheduleDefinition as ScheduleDefinitionMapper,
   Schedule as ScheduleMapper
-} from "../models/mappers";
+} from "./mappers";
 
 export const accept: OperationParameter = {
   parameterPath: "accept",

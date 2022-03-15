@@ -3,14 +3,14 @@ import React from 'react';
 import { Table, TableColumn, Progress, Link } from '@backstage/core-components';
 import Alert from '@material-ui/lab/Alert';
 import { Organization, Project } from 'teamcloud';
-import { useAllProjects, useOrg, useProjects } from '../../hooks';
+import { useAllProjects, useOrg } from '../../hooks';
 
 type DenseTableProps = {
     org: Organization | undefined;
     projects: Project[];
 };
 
-export const DenseTable = ({ org: org, projects: projects }: DenseTableProps) => {
+export const DenseTable = ({ projects: projects }: DenseTableProps) => {
 
     const columns: TableColumn<Project>[] = [
         { title: 'Name', field: 'name', render: (p) => <Link to={`${p.slug}`}>{p.displayName}</Link> },

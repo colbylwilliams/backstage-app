@@ -15,7 +15,7 @@ export const useDeleteProject = () => {
         });
         return result
     }, {
-        onSuccess: (data, project) => {
+        onSuccess: (_data, project) => {
             queryClient.setQueryData(['org', project?.organization, 'project', project?.id], undefined)
             queryClient.invalidateQueries(['org', project?.organization, 'projects'])
 

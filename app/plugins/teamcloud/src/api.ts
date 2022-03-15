@@ -73,8 +73,8 @@ export const startSignalR = async (project: Project, callback: (action: string, 
 
         connection = new HubConnectionBuilder().withUrl(endpoint, httpOptions).withAutomaticReconnect().build();
 
-        connection.onreconnecting((err) => console.log('Reconnecting SignalR'));
-        connection.onreconnected((err) => console.log('Reconnected SignalR'));
+        connection.onreconnecting((_err) => console.log('Reconnecting SignalR'));
+        connection.onreconnected((_err) => console.log('Reconnected SignalR'));
 
         connection.on('create', data => {
             console.log(`Received SignalR Message CREATE: ${JSON.stringify(data)}`);

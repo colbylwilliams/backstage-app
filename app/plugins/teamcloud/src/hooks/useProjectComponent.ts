@@ -8,7 +8,7 @@ import { useProject, useUrl } from '.';
 // import { useErrorHandler } from '../view/ErrorHandler';
 // import { HttpError } from '../Errors';
 
-export const useProjectComponent = (required?: boolean) => {
+export const useProjectComponent = (_required?: boolean) => {
 
     const { navId, itemId } = useUrl() as { navId: string, itemId: string };
     const { data: project } = useProject();
