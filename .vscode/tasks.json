@@ -1,0 +1,137 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "yarn: dev",
+            "type": "shell",
+            "command": "nvm use --lts; yarn dev",
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/app",
+                "shell": {
+                    "executable": "/bin/sh"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "nvm use --lts",
+            "type": "shell",
+            "command": "nvm",
+            "args": [
+                "use",
+                "--lts"
+            ],
+            "presentation": {
+                "showReuseMessage": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/app"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "node -v",
+            "type": "shell",
+            "command": "node -v",
+            "presentation": {
+                "showReuseMessage": false
+            },
+            "dependsOn": [
+                "nvm use --lts"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/app"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "docker: build push (latest)",
+            "type": "shell",
+            "command": "echo done.",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "docker: build",
+                "docker: push (latest)"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "docker: build",
+            "type": "docker-build",
+            "dockerBuild": {
+                "context": "${workspaceFolder}/app",
+                "dockerfile": "${workspaceFolder}/app/packages/backend/Dockerfile",
+                "tag": "teamcloud.azurecr.io/${input:imageRepository}/backstage:${input:imageTagVersion}",
+                "customOptions": "-t \"teamcloud.azurecr.io/${input:imageRepository}/backstage:latest\"",
+                "buildArgs": {
+                    "image_version": "${input:imageTagVersion}"
+                },
+                "labels": {
+                    "includeDefaults": false
+                }
+            }
+        },
+        {
+            "label": "docker: push",
+            "command": "docker",
+            "args": [
+                "push",
+                "teamcloud.azurecr.io/${input:imageRepository}/backstage:${input:imageTagVersion}"
+            ],
+            "dependsOn": []
+        },
+        {
+            "label": "docker: push (latest)",
+            "command": "docker",
+            "args": [
+                "push",
+                "teamcloud.azurecr.io/${input:imageRepository}/backstage:latest"
+            ],
+            "dependsOn": [
+                "docker: push"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "acr: login",
+            "command": "az",
+            "args": [
+                "acr",
+                "login",
+                "-n",
+                "teamcloud"
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "imageRepository",
+            "type": "pickString",
+            "description": "Repository name to push the image.",
+            "default": "teamcloud-dev",
+            "options": [
+                "teamcloud-dev",
+                "teamcloud"
+            ]
+        },
+        {
+            "id": "imageTagVersion",
+            "type": "promptString",
+            "description": "Version for this tag (also builds a latest version).",
+            "default": "0.0.0"
+        },
+        {
+            "id": "imageName",
+            "type": "pickString",
+            "description": "Image name.",
+            "options": [
+                "backstage"
+            ]
+        }
+    ]
+}

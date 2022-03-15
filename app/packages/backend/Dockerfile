@@ -27,7 +27,7 @@ RUN tar xzf skeleton.tar.gz && rm skeleton.tar.gz
 # - sqlite3 dependencies
 # - mkdocs for techdoc generation
 RUN apt-get update && \
-    apt-get install -y libsqlite3-dev python3-pip cmake g++ && \
+    apt-get install -y libsqlite3-dev python3 python3-pip cmake g++ && \
     pip3 install mkdocs-techdocs-core==0.2.2 && \
     rm -rf /var/lib/apt/lists/* && \
     yarn config set python /usr/bin/python3
@@ -42,4 +42,4 @@ RUN tar xzf bundle.tar.gz && rm bundle.tar.gz
 # transport encryption by default
 ENV PGSSLMODE=require
 
-CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml",]
+CMD ["node", "packages/backend", "--config", "app-config.yaml", "--config", "app-config.production.yaml"]
