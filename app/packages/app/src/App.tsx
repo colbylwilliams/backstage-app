@@ -35,6 +35,7 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInProviderConfig, SignInPage } from '@backstage/core-components';
+import { TeamcloudPage } from '@internal/plugin-teamcloud';
 
 const microsoftProvider: SignInProviderConfig = {
   id: 'microsoft-auth-provider',
@@ -102,6 +103,7 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/teamcloud" element={<TeamcloudPage />}/>
   </FlatRoutes>
 );
 
