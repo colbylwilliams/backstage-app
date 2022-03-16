@@ -90,15 +90,10 @@ const cicdContent = (
         missing="info"
         description="You need to add an annotation to your component if you want to enable CI/CD for it. You can read more about annotations in Backstage by clicking the button below."
         action={
-          <Button
-            variant="contained"
-            color="primary"
-            href="https://backstage.io/docs/features/software-catalog/well-known-annotations"
-          >
+          <Button variant="contained" color="primary" href="https://backstage.io/docs/features/software-catalog/well-known-annotations">
             Read more
           </Button>
-        }
-      />
+        } />
     </EntitySwitch.Case>
   </EntitySwitch>
 );
@@ -132,7 +127,6 @@ const overviewContent = (
     <Grid item md={6} xs={12}>
       <EntityCatalogGraphCard variant="gridItem" height={400} />
     </Grid>
-
     <Grid item md={4} xs={12}>
       <EntityLinksCard />
     </Grid>
@@ -189,9 +183,7 @@ const serviceEntityPage = (
       <EntityTechdocsContent />
     </EntityLayout.Route>
 
-    <EntityLayout.Route
-      path="/code-insights"
-      title="Code Insights">
+    <EntityLayout.Route path="/code-insights" title="Code Insights">
       <EntityGithubInsightsContent />
     </EntityLayout.Route>
 
@@ -258,7 +250,9 @@ const componentPage = (
       {websiteEntityPage}
     </EntitySwitch.Case>
 
-    <EntitySwitch.Case>{defaultEntityPage}</EntitySwitch.Case>
+    <EntitySwitch.Case>
+      {defaultEntityPage}
+    </EntitySwitch.Case>
   </EntitySwitch>
 );
 

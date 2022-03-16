@@ -21,13 +21,13 @@ export const ProjectsPage = () => {
 
     return (
         <Page themeId="tool">
-            <Header title="TeamCloud" subtitle="Optional subtitle">
-                <HeaderLabel label="Image Version" value={info?.imageVersion} />
-                <HeaderLabel label="Template Version" value={info?.templateVersion} />
+            <Header title="Contoso" subtitle="Developer Cloud">
+                <HeaderLabel label="Version" value={info?.imageVersion} />
+                {/* <HeaderLabel label="Template Version" value={info?.templateVersion} /> */}
                 {/* <HeaderLabel label="Token" value={orgs?.map(o => o.displayName).join(', ')} /> */}
             </Header>
             <Content>
-                <ContentHeader title="Organizations">
+                <ContentHeader title="">
                     <SupportButton>A plugin for TeamCloud</SupportButton>
                 </ContentHeader>
                 <Grid container spacing={3} direction="column">

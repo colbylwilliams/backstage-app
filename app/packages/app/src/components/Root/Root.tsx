@@ -24,6 +24,11 @@ import MapIcon from '@material-ui/icons/MyLocation';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import AccountTree from '@material-ui/icons/AccountTree';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
+import CategoryIcon from '@material-ui/icons/Category';
+import ComputerIcon from '@material-ui/icons/Computer';
+import CodeIcon from '@material-ui/icons/Code';
+import CloudIcon from '@material-ui/icons/Cloud';
+import GroupIcon from '@material-ui/icons/Group';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import { NavLink } from 'react-router-dom';
@@ -68,12 +73,7 @@ const SidebarLogo = () => {
 
   return (
     <div className={classes.root}>
-      <Link
-        component={NavLink}
-        to="/"
-        underline="none"
-        className={classes.link}
-      >
+      <Link component={NavLink} to="/" underline="none" className={classes.link} >
         {isOpen ? <LogoFull /> : <LogoIcon />}
       </Link>
     </div>
@@ -87,18 +87,27 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
       <SidebarGroup label="Search" icon={<SearchIcon />} to="/search">
         <SidebarSearchModal />
       </SidebarGroup>
-      <SidebarDivider />
-      <SidebarGroup label="Orgs" icon={<MenuIcon />}>
-        <SidebarItem icon={AccountTree} to="orgs" text='Organizations' />
-        <SidebarItem icon={AccountTree} to="projects" text='Projects' />
-      </SidebarGroup>
+      {/* <SidebarDivider /> */}
+      {/* <SidebarGroup label="Orgs" icon={<MenuIcon />}> */}
+      {/* <SidebarItem icon={AccountTree} to="orgs" text='Organizations' /> */}
+      {/* </SidebarGroup> */}
       <SidebarDivider />
       <SidebarGroup label="Menu" icon={<MenuIcon />}>
         {/* Global nav, not org-specific */}
-        <SidebarItem icon={HomeIcon} to="catalog" text="Home" />
-        <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
-        <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
+        {/* <SidebarItem icon={HomeIcon} to="catalog" text="Home" /> */}
+        <SidebarItem icon={HomeIcon} to="/" text="Home" />
+        <SidebarItem icon={AccountTree} to="projects" text='Projects' />
+        <SidebarItem icon={GroupIcon} to="teams" text="My teams" />
+        <SidebarItem icon={CategoryIcon} to="catalog" text="All resources" />
+        <SidebarDivider />
         <SidebarItem icon={CreateComponentIcon} to="create" text="Create..." />
+        <SidebarDivider />
+        <SidebarItem icon={ComputerIcon} to="dev-boxes" text="Dev boxes" />
+        <SidebarItem icon={CodeIcon} to="codespaces" text="Codespaces" />
+        <SidebarItem icon={CloudIcon} to="environments" text="Environments" />
+        <SidebarDivider />
+        <SidebarItem icon={LibraryBooks} to="docs" text="Docs" />
+        <SidebarItem icon={ExtensionIcon} to="api-docs" text="APIs" />
         {/* End global nav */}
         <SidebarDivider />
         <SidebarScrollWrapper>

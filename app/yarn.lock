@@ -1909,6 +1909,24 @@
     react-router-dom "6.0.0-beta.0"
     react-use "^17.2.4"
 
+"@backstage/plugin-home@^0.4.18":
+  version "0.4.18"
+  resolved "https://registry.yarnpkg.com/@backstage/plugin-home/-/plugin-home-0.4.18.tgz#e3abbb0f14576a24f86608b535b9c8460b3df832"
+  integrity sha512-F+Hm4t5s4+rgUQB0DPFOepbgszU3c27yDH5C1WDVKI/qyv5jDHinM28/Zele/V0XNa8PAYyw9Yx9RwGKNe/Uzg==
+  dependencies:
+    "@backstage/catalog-model" "^0.13.0"
+    "@backstage/core-components" "^0.9.1"
+    "@backstage/core-plugin-api" "^0.8.0"
+    "@backstage/plugin-catalog-react" "^0.9.0"
+    "@backstage/plugin-search" "^0.7.3"
+    "@backstage/theme" "^0.2.15"
+    "@material-ui/core" "^4.12.2"
+    "@material-ui/icons" "^4.9.1"
+    "@material-ui/lab" "4.0.0-alpha.57"
+    lodash "^4.17.21"
+    react-router "6.0.0-beta.0"
+    react-use "^17.2.4"
+
 "@backstage/plugin-org@^0.5.0":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@backstage/plugin-org/-/plugin-org-0.5.2.tgz#7ae6a69eb967e5d730099c24ce03564e31655775"

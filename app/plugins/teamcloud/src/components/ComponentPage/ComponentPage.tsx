@@ -21,7 +21,7 @@ export const ComponentPage = () => {
 
     return (
         <Page themeId="tool">
-            <Header title="TeamCloud" subtitle="Optional subtitle">
+            <Header title="Contoso" subtitle="Developer Cloud">
                 <HeaderLabel label="Slug" value={org?.slug} />
                 <HeaderLabel label="Region" value={org?.location} />
                 {/* <HeaderLabel label="Token" value={orgs?.map(o => o.displayName).join(', ')} /> */}

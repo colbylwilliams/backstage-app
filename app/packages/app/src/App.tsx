@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route } from 'react-router';
+import { Route } from 'react-router';
 import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
 import {
   CatalogEntityPage,
@@ -26,32 +26,31 @@ import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
 
-import { AlertDisplay, OAuthRequestDialog } from '@backstage/core-components';
+import { AlertDisplay, OAuthRequestDialog, SignInPage, SignInProviderConfig } from '@backstage/core-components';
 import { createApp } from '@backstage/app-defaults';
 import { FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { PermissionedRoute } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
-// import { TeamCloudProvider } from '@internal/plugin-teamcloud/src/providers/TeamCloudProvider';
-import { OrgPage, OrgsPage, TeamCloudProvider } from '@internal/plugin-teamcloud';
 
-// import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
-// import { SignInProviderConfig, SignInPage } from '@backstage/core-components';
-// import { OrgPage, OrgsPage, TeamCloudProvider } from '@internal/plugin-teamcloud';
+import { TeamCloudProvider, ProjectsPage } from '@internal/plugin-teamcloud';
+import { HomepageCompositionRoot } from '@backstage/plugin-home';
+import { HomePage } from './components/home/HomePage';
+import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 
-// const microsoftProvider: SignInProviderConfig = {
-//   id: 'microsoft-auth-provider',
-//   title: 'Microsoft',
-//   message: 'Sign in using Microsoft',
-//   apiRef: microsoftAuthApiRef
-// }
+const microsoftProvider: SignInProviderConfig = {
+  id: 'microsoft-auth-provider',
+  title: 'Microsoft',
+  message: 'Sign in using Microsoft',
+  apiRef: microsoftAuthApiRef
+}
 
 const app = createApp({
   apis,
-  // components: {
-  //   // SignInPage: props => <SignInPage {...props} auto provider={microsoftProvider} />
-  //   // SignInPage: props => <SignInPage {...props} auto providers={['guest', microsoftProvider]} />
-  // },
+  components: {
+    SignInPage: props => <SignInPage {...props} auto provider={microsoftProvider} />
+    //   // SignInPage: props => <SignInPage {...props} auto providers={['guest', microsoftProvider]} />
+  },
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
@@ -75,7 +74,9 @@ const AppRouter = app.getRouter();
 const routes = (
   <TeamCloudProvider>
     <FlatRoutes>
-      <Navigate key="/" to="catalog" />
+      <Route path="/" element={<HomepageCompositionRoot />}>
+        <HomePage />
+      </Route>
       <Route path="/catalog" element={<CatalogIndexPage />} />
       <Route path="/catalog/:namespace/:kind/:name" element={<CatalogEntityPage />}>
         {entityPage}
@@ -93,9 +94,9 @@ const routes = (
       </Route>
       <Route path="/settings" element={<UserSettingsPage />} />
       <Route path="/catalog-graph" element={<CatalogGraphPage />} />
-      <Route path="/orgs" element={<OrgsPage />} />
-      <Route path="/orgs/:orgId" element={<OrgPage />} />
-      {/* <Route path="/projects" element={<Projec />} /> */}
+      {/* <Route path="/orgs" element={<OrgsPage />} /> */}
+      {/* <Route path="/orgs/:orgId" element={<OrgPage />} /> */}
+      <Route path="/projects" element={<ProjectsPage />} />
     </FlatRoutes>
   </TeamCloudProvider >
 );

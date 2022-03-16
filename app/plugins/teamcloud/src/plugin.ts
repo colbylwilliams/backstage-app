@@ -18,23 +18,32 @@ export const TeamCloudProvider = teamcloudPlugin.provide(
   })
 );
 
-export const OrgsPage = teamcloudPlugin.provide(
+export const ProjectsPage = teamcloudPlugin.provide(
   createRoutableExtension({
-    name: 'OrgsPage',
+    name: 'ProjectsPage',
     component: () =>
-      import('./components/OrgsPage/OrgsPage').then(m => m.OrgsPage),
+      import('./components/ProjectsPage/ProjectsPage').then(m => m.ProjectsPage),
     mountPoint: rootRouteRef,
   }),
 );
 
-export const OrgPage = teamcloudPlugin.provide(
-  createRoutableExtension({
-    name: 'OrgsPage',
-    component: () =>
-      import('./components/OrgPage/OrgPage').then(m => m.OrgPage),
-    mountPoint: rootRouteRef,
-  }),
-);
+// export const OrgsPage = teamcloudPlugin.provide(
+//   createRoutableExtension({
+//     name: 'OrgsPage',
+//     component: () =>
+//       import('./components/OrgsPage/OrgsPage').then(m => m.OrgsPage),
+//     mountPoint: rootRouteRef,
+//   }),
+// );
+
+// export const OrgPage = teamcloudPlugin.provide(
+//   createRoutableExtension({
+//     name: 'OrgsPage',
+//     component: () =>
+//       import('./components/OrgPage/OrgPage').then(m => m.OrgPage),
+//     mountPoint: rootRouteRef,
+//   }),
+// );
 
 export const TeamcloudPage = teamcloudPlugin.provide(
   createRoutableExtension({
