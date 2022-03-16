@@ -24,6 +24,7 @@ import {
     Grid,
     makeStyles
 } from '@material-ui/core';
+import { ProjectList } from '@internal/plugin-teamcloud';
 // import { Grid, List, ListItemText, makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -68,32 +69,32 @@ const tools = [
         icon: <CodespacesLogoIcon />
     }, {
         url: '#',
-        label: 'GitHub',
-        icon: <GitHubLogoIcon />
-    }, {
-        url: '#',
         label: 'Stack Overflow',
         icon: <StackOverflowLogoIcon />
-    }, {
-        url: '#',
-        label: 'Azure',
-        icon: <AzureLogoIcon />
     }, {
         url: '#',
         label: 'AzureDevOps',
         icon: <AzureDevOpsLogoIcon />
     }, {
         url: '#',
+        label: 'Azure',
+        icon: <AzureLogoIcon />
+    }, {
+        url: '#',
+        label: 'GitHub',
+        icon: <GitHubLogoIcon />
+    }, {
+        url: '#',
         label: 'Teams',
         icon: <TeamsLogoIcon />
     }, {
         url: '#',
-        label: 'GitHubActions',
-        icon: <GitHubActionsLogoIcon />
-    }, {
-        url: '#',
         label: 'Visual Studio',
         icon: <VisualStudioLogoIcon />
+    }, {
+        url: '#',
+        label: 'GitHub Actions',
+        icon: <GitHubActionsLogoIcon />
     }
 ]
 
@@ -113,23 +114,20 @@ export const HomePage = () => {
                             <HomePageSearchBar classes={{ root: classes.searchBar }} placeholder="Search" />
                         </Grid>
                         <Grid container item xs={12}>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12} md={6} lg={8} >
+                                <ProjectList />
+                            </Grid>
+                            <Grid item xs={12} md={6} lg={4}>
                                 <HomePageStarredEntities title='Favorites' />
                             </Grid>
-                            <Grid item xs={12} md={6} >
+                            <Grid item xs={12} md={6} lg={8}>
+                                <InfoCard title="Composable Section">
+                                    {/* placeholder for content */}
+                                    <div style={{ height: 210 }} />
+                                </InfoCard>
+                            </Grid>
+                            <Grid item xs={12} md={6} lg={4} >
                                 <HomePageToolkit tools={tools} />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <InfoCard title="Composable Section">
-                                    {/* placeholder for content */}
-                                    <div style={{ height: 210 }} />
-                                </InfoCard>
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                                <InfoCard title="Composable Section">
-                                    {/* placeholder for content */}
-                                    <div style={{ height: 210 }} />
-                                </InfoCard>
                             </Grid>
                         </Grid>
                     </Grid>

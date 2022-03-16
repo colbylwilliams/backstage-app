@@ -9,7 +9,8 @@ export const useUrl = () => {
 
     const { pathname } = useLocation();
 
-    const [orgId, setOrgId] = useState<string>();
+    // const [orgId, setOrgId] = useState<string>();
+    const [orgId, _setOrgId] = useState<string>('contoso');
     const [projectId, setProjectId] = useState<string>();
     const [settingId, setSettingId] = useState<string>();
     const [navId, setNavId] = useState<string>();
@@ -26,7 +27,7 @@ export const useUrl = () => {
 
         const length = parts.length;
 
-        let org = undefined;
+        // let org = undefined;
         let project = undefined;
         let setting = undefined;
         let nav = undefined;
@@ -36,7 +37,7 @@ export const useUrl = () => {
 
         if (length >= 2 && matchesLowerCase('orgs', parts[0]) && !matchesLowerCase('new', parts[1])) {
 
-            org = parts[1]; // orgs/:orgId
+            // org = parts[1]; // orgs/:orgId
 
             if (length >= 3 && matchesLowerCase('settings', parts[2])) {
 
@@ -80,8 +81,8 @@ export const useUrl = () => {
             }
         }
 
-        if (org !== orgId)
-            setOrgId(org);
+        // if (org !== orgId)
+        //     setOrgId(org);
         if (project !== projectId)
             setProjectId(project);
         if (setting !== settingId)

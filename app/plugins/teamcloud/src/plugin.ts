@@ -27,6 +27,15 @@ export const ProjectsPage = teamcloudPlugin.provide(
   }),
 );
 
+export const ProjectList = teamcloudPlugin.provide(
+  createComponentExtension({
+    name: 'ProjectsList',
+    component: {
+      lazy: () => import('./components/ProjectsList/ProjectsList').then(m => m.ProjectsList)
+    }
+  }),
+);
+
 // export const OrgsPage = teamcloudPlugin.provide(
 //   createRoutableExtension({
 //     name: 'OrgsPage',

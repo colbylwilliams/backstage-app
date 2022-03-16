@@ -14,7 +14,7 @@ export const DenseTable = ({ projects: projects }: DenseTableProps) => {
 
     const columns: TableColumn<Project>[] = [
         { title: 'Name', field: 'name', render: (p) => <Link to={`${p.slug}`}>{p.displayName}</Link> },
-        { title: 'Organization', field: 'organizationName' },
+        // { title: 'Organization', field: 'organizationName' },
         // { title: 'Organization', field: 'organizationName', render: () => org?.displayName },
         { title: 'Slug', field: 'slug' },
         { title: 'Id', field: 'id' },
