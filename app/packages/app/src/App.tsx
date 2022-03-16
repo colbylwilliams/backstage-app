@@ -40,7 +40,7 @@ import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
 
 const microsoftProvider: SignInProviderConfig = {
   id: 'microsoft-auth-provider',
-  title: 'Microsoft',
+  title: 'Microsoft Login',
   message: 'Sign in using Microsoft',
   apiRef: microsoftAuthApiRef
 }
