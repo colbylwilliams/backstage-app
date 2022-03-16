@@ -35,51 +35,98 @@ export const useUrl = () => {
         let item = undefined;
         let subitem = undefined;
 
-        if (length >= 2 && matchesLowerCase('orgs', parts[0]) && !matchesLowerCase('new', parts[1])) {
 
-            // org = parts[1]; // orgs/:orgId
+        if (length >= 2 && matchesLowerCase('projects', parts[0]) && !matchesLowerCase('new', parts[1])) {
 
-            if (length >= 3 && matchesLowerCase('settings', parts[2])) {
+            project = parts[1]; // projects/:projectId
 
-                if (length >= 4) {
-                    setting = parts[3]; // orgs/:orgId/settings/:settingId
+            // if (length >= 3 && matchesLowerCase('settings', parts[2])) {
 
-                    if (length >= 5 && !matchesLowerCase('new', parts[4]))
-                        item = parts[4] // orgs/:orgId/settings/:settingId/:itemId
-                }
+            //     if (length >= 4) {
+            //         setting = parts[3]; // settings/:settingId
 
-            } else if (length >= 4 && matchesLowerCase('projects', parts[2]) && !matchesLowerCase('new', parts[3])) {
+            //         if (length >= 5 && !matchesLowerCase('new', parts[4]))
+            //             item = parts[4] // settings/:settingId/:itemId
+            //     }
 
-                project = parts[3]; // orgs/:orgId/projects/:projectId
+            // } else if (length >= 4 && matchesLowerCase('projects', parts[2]) && !matchesLowerCase('new', parts[3])) {
 
-                if (length >= 5) {
+            // project = parts[3]; // projects/:projectId
 
-                    if (matchesLowerCase('settings', parts[4])) {
+            if (length >= 3) {
 
-                        if (length >= 6) {
-                            setting = parts[5]; // orgs/:orgId/projects/:projectId/settings/:settingId
+                if (matchesLowerCase('settings', parts[4])) {
 
-                            if (length >= 7 && !matchesLowerCase('new', parts[6]))
-                                item = parts[6]; // orgs/:orgId/projects/:projectId/settings/:settingId/:itemId
-                        }
-                    } else {
+                    if (length >= 4) {
+                        setting = parts[3]; // projects/:projectId/settings/:settingId
 
-                        nav = parts[4]; // orgs/:orgId/projects/:projectId/:navId
+                        if (length >= 5 && !matchesLowerCase('new', parts[4]))
+                            item = parts[4]; // projects/:projectId/settings/:settingId/:itemId
+                    }
+                } else {
 
-                        if (length >= 6 && !matchesLowerCase('new', parts[5])) {
-                            item = parts[5]; // orgs/:orgId/projects/:projectId/:navId/:itemId
+                    nav = parts[4]; // projects/:projectId/:navId
 
-                            if (length >= 7) {
-                                subnav = parts[6]; // orgs/:orgId/projects/:projectId/:navId/:itemId/:subNavId
+                    if (length >= 4 && !matchesLowerCase('new', parts[3])) {
+                        item = parts[3]; // projects/:projectId/:navId/:itemId
 
-                                if (length >= 8)
-                                    subitem = parts[7]; // orgs/:orgId/projects/:projectId/:navId/:itemId/:subNavId/:subItemId
-                            }
+                        if (length >= 5) {
+                            subnav = parts[4]; // projects/:projectId/:navId/:itemId/:subNavId
+
+                            if (length >= 6)
+                                subitem = parts[5]; // projects/:projectId/:navId/:itemId/:subNavId/:subItemId
                         }
                     }
                 }
             }
+            // }
         }
+
+        // if (length >= 2 && matchesLowerCase('orgs', parts[0]) && !matchesLowerCase('new', parts[1])) {
+
+        // org = parts[1]; // orgs/:orgId
+
+        // if (length >= 3 && matchesLowerCase('settings', parts[2])) {
+
+        //     if (length >= 4) {
+        //         setting = parts[3]; // orgs/:orgId/settings/:settingId
+
+        //         if (length >= 5 && !matchesLowerCase('new', parts[4]))
+        //             item = parts[4] // orgs/:orgId/settings/:settingId/:itemId
+        //     }
+
+        // } else if (length >= 4 && matchesLowerCase('projects', parts[2]) && !matchesLowerCase('new', parts[3])) {
+
+        //     project = parts[3]; // orgs/:orgId/projects/:projectId
+
+        //     if (length >= 5) {
+
+        //         if (matchesLowerCase('settings', parts[4])) {
+
+        //             if (length >= 6) {
+        //                 setting = parts[5]; // orgs/:orgId/projects/:projectId/settings/:settingId
+
+        //                 if (length >= 7 && !matchesLowerCase('new', parts[6]))
+        //                     item = parts[6]; // orgs/:orgId/projects/:projectId/settings/:settingId/:itemId
+        //             }
+        //         } else {
+
+        //             nav = parts[4]; // orgs/:orgId/projects/:projectId/:navId
+
+        //             if (length >= 6 && !matchesLowerCase('new', parts[5])) {
+        //                 item = parts[5]; // orgs/:orgId/projects/:projectId/:navId/:itemId
+
+        //                 if (length >= 7) {
+        //                     subnav = parts[6]; // orgs/:orgId/projects/:projectId/:navId/:itemId/:subNavId
+
+        //                     if (length >= 8)
+        //                         subitem = parts[7]; // orgs/:orgId/projects/:projectId/:navId/:itemId/:subNavId/:subItemId
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // }
 
         // if (org !== orgId)
         //     setOrgId(org);

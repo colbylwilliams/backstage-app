@@ -36,6 +36,16 @@ export const ProjectList = teamcloudPlugin.provide(
   }),
 );
 
+export const ProjectPage = teamcloudPlugin.provide(
+  createRoutableExtension({
+    name: 'ProjectPage',
+    component: () =>
+      import('./components/ProjectPage/ProjectPage').then(m => m.ProjectPage),
+    mountPoint: rootRouteRef,
+  }),
+);
+
+
 // export const OrgsPage = teamcloudPlugin.provide(
 //   createRoutableExtension({
 //     name: 'OrgsPage',

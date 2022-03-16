@@ -33,7 +33,7 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { PermissionedRoute } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
-import { TeamCloudProvider, ProjectsPage } from '@internal/plugin-teamcloud';
+import { TeamCloudProvider, ProjectsPage, ProjectPage } from '@internal/plugin-teamcloud';
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
@@ -97,6 +97,7 @@ const routes = (
       {/* <Route path="/orgs" element={<OrgsPage />} /> */}
       {/* <Route path="/orgs/:orgId" element={<OrgPage />} /> */}
       <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/projects/:projectId" element={<ProjectPage />} />
     </FlatRoutes>
   </TeamCloudProvider >
 );
