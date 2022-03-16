@@ -10,14 +10,14 @@ import {
     SupportButton,
     InfoCard,
 } from '@backstage/core-components';
-import { useOrg, useProject, useProjectMembers } from '../../hooks';
+import { useOrg, useProject } from '../../hooks';
 
 export const ProjectPage = () => {
 
     // const { data: info } = useInfo();
     const { data: org } = useOrg();
     const { data: project } = useProject();
-    const { data: members } = useProjectMembers();
+    // const { data: members } = useProjectMembers();
 
     // console.log(orgs);
 
