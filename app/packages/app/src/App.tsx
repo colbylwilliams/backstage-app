@@ -37,6 +37,7 @@ import { TeamCloudProvider, ProjectsPage, ProjectPage } from '@internal/plugin-t
 import { HomepageCompositionRoot } from '@backstage/plugin-home';
 import { HomePage } from './components/home/HomePage';
 import { microsoftAuthApiRef } from '@backstage/core-plugin-api';
+import { Entity } from '@backstage/catalog-model';
 
 const microsoftProvider: SignInProviderConfig = {
   id: 'microsoft-auth-provider',
@@ -71,6 +72,21 @@ const app = createApp({
 const AppProvider = app.getProvider();
 const AppRouter = app.getRouter();
 
+const templateGroups: {
+  title?: string;
+  titleComponent?: React.ReactNode;
+  filter: (entity: Entity) => boolean;
+}[] = [
+    {
+      title: 'Dev Boxes',
+      filter: (e) => e.spec?.type === 'dev-box'
+    },
+    {
+      title: 'Environments',
+      filter: (e) => e.spec?.type === 'service'
+    }
+  ]
+
 const routes = (
   <TeamCloudProvider>
     <FlatRoutes>
@@ -85,7 +101,7 @@ const routes = (
         <DefaultTechDocsHome />
       </Route>
       <Route path="/docs/:namespace/:kind/:name/*" element={<TechDocsReaderPage />} />
-      <Route path="/create" element={<ScaffolderPage />} />
+      <Route path="/create" element={<ScaffolderPage groups={templateGroups} />} />
       <Route path="/api-docs" element={<ApiExplorerPage />} />
       <Route path="/tech-radar" element={<TechRadarPage width={1500} height={800} />} />
       <PermissionedRoute path="/catalog-import" permission={catalogEntityCreatePermission} element={<CatalogImportPage />} />
