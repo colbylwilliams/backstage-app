@@ -9,7 +9,7 @@ import { GitHubActionsLogoIcon } from '../icons/GitHubActionsLogoIcon';
 import { GitHubLogoIcon } from '../icons/GitHubLogoIcon';
 import { StackOverflowLogoIcon } from '../icons/StackOverflowLogoIcon';
 import { TeamsLogoIcon } from '../icons/TeamsLogoIcon';
-import { TemplateBackstageLogo } from './TemplateBackstageLogo';
+import { TemplateContosoLogo } from './TemplateContosoLogo';
 import {
     HomePageCompanyLogo,
     HomePageStarredEntities,
@@ -109,7 +109,7 @@ export const HomePage = () => {
             <Page themeId="home">
                 <Content>
                     <Grid container justifyContent="center" spacing={6}>
-                        <HomePageCompanyLogo className={container} logo={<TemplateBackstageLogo classes={{ svg, path }} />} />
+                        <HomePageCompanyLogo className={container} logo={<TemplateContosoLogo classes={{ svg, path }} />} />
                         <Grid container item xs={12} alignItems="center" direction="row">
                             <HomePageSearchBar classes={{ root: classes.searchBar }} placeholder="Search" />
                         </Grid>
